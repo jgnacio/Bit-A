@@ -1,26 +1,74 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "devhttps": "next dev --experimental-https"
   },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.5"
+    "@clerk/nextjs": "^6.8.3",
+    "@gsap/react": "^2.1.1",
+    "@hookform/resolvers": "^3.9.1",
+    "@mantine/hooks": "^7.15.0",
+    "@nextui-org/button": "2.2.6",
+    "@nextui-org/react": "^2.6.7",
+    "@nextui-org/spinner": "^2.2.4",
+    "@nextui-org/system": "^2.4.4",
+    "@nextui-org/theme": "^2.4.3",
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-separator": "^1.1.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-toast": "^1.2.2",
+    "@react-three/drei": "^9.120.4",
+    "@react-three/fiber": "9.0.0-rc.1",
+    "@react-three/postprocessing": "^2.16.3",
+    "@sentry/cli": "^2.39.1",
+    "@sentry/nextjs": "8",
+    "@thi.ng/color": "^5.7.13",
+    "axios": "^1.7.9",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.13.5",
+    "glslify-loader": "^2.0.0",
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.18",
+    "leva": "^0.9.35",
+    "libphonenumber-js": "^1.11.16",
+    "lucide-react": "^0.468.0",
+    "mini-svg-data-uri": "^1.4.4",
+    "next": "^15.0.4",
+    "raw-loader": "^4.0.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.0",
+    "react-icons": "^5.4.0",
+    "resend": "^4.0.1",
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.171.0",
+    "zod": "^3.24.0",
+    "zustand": "^5.0.2"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/node": "^22",
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.2",
+    "@types/three": "^0.170.0",
+    "eslint": "^9",
+    "eslint-config-next": "^15.0.4",
     "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.5"
+    "tailwindcss": "^3.4.16",
+    "typescript": "^5"
+  },
+  "overrides": {
+    "leva": {
+      "@radix-ui/react-portal": "1.0.2"
+    },
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.2"
   }
 }

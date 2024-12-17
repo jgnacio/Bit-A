@@ -2,32 +2,96 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
+  * {
+    cursor: none !important;
+  }
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    /* Primary and Secondary remain the same */
+    --primary: 302, 83%, 48%;
+    --primary-foreground: 210, 20%, 98%;
+    --secondary: 208, 97%, 55%;
+    --secondary-foreground: 302, 83%, 48%;
+
+    /* Background and Foreground */
+    --background: 0, 0%, 100%;
+    --foreground: 240, 10%, 20%;
+
+    /* Card and Popover */
+    --card: 0, 0%, 100%;
+    --card-foreground: 240, 10%, 20%;
+    --popover: 0, 0%, 100%;
+    --popover-foreground: 240, 10%, 20%;
+
+    /* Muted and Accent */
+    --muted: 240, 5%, 95%;
+    --muted-foreground: 240, 4%, 46%;
+    --accent: 240, 5%, 90%;
+    --accent-foreground: 240, 10%, 20%;
+
+    /* Destructive */
+    --destructive: 0, 84%, 60%;
+    --destructive-foreground: 0, 0%, 100%;
+
+    /* Border and Input */
+    --border: 240, 5%, 85%;
+    --input: 240, 5%, 85%;
+    --ring: 240, 5%, 90%;
+
+    /* Other */
+    --radius: 0.5rem;
+
+    /* Chart Colors */
+    --chart-1: 12, 76%, 61%;
+    --chart-2: 173, 58%, 39%;
+    --chart-3: 197, 37%, 24%;
+    --chart-4: 43, 74%, 66%;
+    --chart-5: 27, 87%, 67%;
+  }
+
+  .dark {
+    /* Primary and Secondary remain the same */
+    --primary: 302, 83%, 48%;
+    --primary-foreground: 210, 20%, 98%;
+    --secondary: 208, 97%, 55%;
+    --secondary-foreground: 302, 83%, 48%;
+
+    /* Background and Foreground */
+    --background: 240, 10%, 10%;
+    --foreground: 0, 0%, 95%;
+
+    /* Card and Popover */
+    --card: 240, 10%, 12%;
+    --card-foreground: 0, 0%, 95%;
+    --popover: 240, 10%, 12%;
+    --popover-foreground: 0, 0%, 95%;
+
+    /* Muted and Accent */
+    --muted: 240, 10%, 20%;
+    --muted-foreground: 240, 5%, 65%;
+    --accent: 240, 10%, 25%;
+    --accent-foreground: 0, 0%, 95%;
+
+    /* Destructive */
+    --destructive: 0, 62%, 40%;
+    --destructive-foreground: 0, 0%, 100%;
+
+    /* Border and Input */
+    --border: 240, 10%, 25%;
+    --input: 240, 10%, 25%;
+    --ring: 240, 10%, 30%;
+
+    /* Chart Colors */
+    --chart-1: 220, 70%, 50%;
+    --chart-2: 160, 60%, 45%;
+    --chart-3: 30, 80%, 55%;
+    --chart-4: 280, 65%, 60%;
+    --chart-5: 340, 75%, 55%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer base {
+  * {
+    @apply border-border;
   }
 }
