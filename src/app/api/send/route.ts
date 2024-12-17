@@ -4,13 +4,13 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const { contact, name } = body;
 
     if (!contact || !name) {
-      return Response.json(
+      return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 }
       );
@@ -24,11 +24,14 @@ export async function POST(req: NextRequest, res: NextResponse) {
     });
 
     if (error) {
-      return Response.json({ error }, { status: 500 });
+      return NextResponse.json({ error }, { status: 500 });
     }
 
-    return Response.json(data);
+    return NextResponse.json({ data }, { status: 200 });
   } catch (error) {
-    return Response.json({ error }, { status: 500 });
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 }
+    );
   }
 }
