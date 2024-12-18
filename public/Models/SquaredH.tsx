@@ -7,7 +7,7 @@ import gsap from "gsap";
 
 export default function SquaredH() {
   const squareHRef = useRef<Mesh>(null);
-  const { nodes } = useGLTF("/Models/SquaredH.glb");
+  const { nodes } = useGLTF("/Models/squaredH.glb");
 
   useFrame((state, delta) => {
     if (squareHRef.current) {
