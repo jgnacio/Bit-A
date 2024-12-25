@@ -103,14 +103,19 @@ export default function ContactForm() {
       id="FormContact"
       className=" items-center h-[88vh] lg:h-[90vh] grid grid-cols-1 lg:grid-cols-2 overflow-hidden"
     >
-      <div className="hidden  overflow-hidden lg:flex justify-center items-center">
-        <video autoPlay loop muted playsInline className=" object-cover">
+      <div className="hidden  overflow-hidden lg:flex justify-center items-center w-full h-full">
+        <img
+          src="https://images.unsplash.com/photo-1609921212029-bb5a28e60960"
+          alt="Computadora de escritorio mostrando mockups para smartphone"
+          className="object-cover w-full h-full"
+        />
+        {/* <video autoPlay loop muted playsInline className=" object-cover">
           <source
             src="https://res.cloudinary.com/dhq5ewbyu/video/upload/v1731596491/Bit-A/videos/u9jlw2sbas6ycszncxut.mp4"
             type="video/mp4"
           />
           Tu navegador no soporta el tag de video.
-        </video>
+        </video> */}
       </div>
       <div className="w-full h-[60vh] md:h-[88vh] flex flex-col justify-center items-center p-2 md:p-8 sm:flex-1 ">
         <div className="mb-6 flex flex-col items-center justify-center">
