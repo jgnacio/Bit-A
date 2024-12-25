@@ -15,6 +15,7 @@ import { OS, useOs } from "@mantine/hooks";
 import { useToast } from "@/hooks/use-toast";
 import { DateInput, Spinner } from "@nextui-org/react";
 import axios from "axios";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ContactForm() {
   const { toast } = useToast();
@@ -43,11 +44,70 @@ export default function ContactForm() {
   const handleContactTypeSelection = (type: FormContactType["contactType"]) => {
     setContactType(type);
     setValue("contactType", type);
-
-    // Limpiar el campo de contacto cuando se cambia el tipo
     setValue("contact", { contactType: type, contact: "" });
   };
 
+  const buttonVariants = {
+    selected: {
+      scale: [1, 0.95, 1.05, 1],
+      transition: {
+        duration: 0.8,
+        times: [0, 0.1, 0.4, 1],
+      },
+    },
+    unselected: {
+      scale: 1,
+      opacity: 0.9,
+      transition: {
+        duration: 0.3,
+        times: [0, 0.2, 0.5, 1],
+      },
+    },
+    hover: {
+      scale: 1.05,
+      boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.1)",
+    },
+    tap: {
+      scale: 0.95,
+    },
+  };
+  const submitButtonVariants = {
+    initial: {
+      scale: 1,
+      boxShadow: "0px 0px 0px rgba(0, 0, 0, 0)",
+    },
+    hover: {
+      scale: 1.02,
+      boxShadow: [
+        "0px 0px 0px rgba(0, 0, 0, 0)",
+        "0px 5px 15px rgba(0, 0, 0, 0.2)",
+      ],
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+      },
+    },
+    tap: {
+      scale: 0.95,
+      boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+      transition: {
+        duration: 0.1,
+      },
+    },
+    loading: {
+      scale: [1, 0.98, 1],
+      boxShadow: [
+        "0px 0px 0px rgba(0, 0, 0, 0.1)",
+        "0px 3px 8px rgba(0, 0, 0, 0.2)",
+        "0px 0px 0px rgba(0, 0, 0, 0.1)",
+      ],
+      transition: {
+        duration: 1.5,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  };
   const onSubmit = async (data: FormContactType) => {
     try {
       // Simular envío del formulario
@@ -101,31 +161,38 @@ export default function ContactForm() {
   return (
     <div
       id="FormContact"
-      className=" items-center h-[88vh] lg:h-[90vh] grid grid-cols-1 lg:grid-cols-2 overflow-hidden"
+      className="items-center h-[88vh] lg:h-[90vh] grid grid-cols-1 lg:grid-cols-2 overflow-hidden"
     >
-      <div className="hidden  overflow-hidden lg:flex justify-center items-center w-full h-full">
-        <img
+      <div className="hidden overflow-hidden lg:flex justify-center items-center w-full h-full">
+        <motion.img
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
           src="https://images.unsplash.com/photo-1609921212029-bb5a28e60960"
           alt="Computadora de escritorio mostrando mockups para smartphone"
           className="object-cover w-full h-full"
         />
-        {/* <video autoPlay loop muted playsInline className=" object-cover">
-          <source
-            src="https://res.cloudinary.com/dhq5ewbyu/video/upload/v1731596491/Bit-A/videos/u9jlw2sbas6ycszncxut.mp4"
-            type="video/mp4"
-          />
-          Tu navegador no soporta el tag de video.
-        </video> */}
       </div>
-      <div className="w-full h-[60vh] md:h-[88vh] flex flex-col justify-center items-center p-2 md:p-8 sm:flex-1 ">
-        <div className="mb-6 flex flex-col items-center justify-center">
+      <div className="w-full h-[60vh] md:h-[88vh] flex flex-col justify-center items-center p-2 md:p-8 sm:flex-1">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-6 flex flex-col items-center justify-center"
+        >
           <h3 className="text-5xl font-bold mb-2">Hablanos de tu proyecto</h3>
           <p className="text-lg text-gray-600">
             Completa el formulario y nos pondremos en contacto
           </p>
-        </div>
+        </motion.div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <motion.form
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          onSubmit={handleSubmit(onSubmit)}
+          className="space-y-4 w-full max-w-lg"
+        >
           <div className="space-y-2">
             <Label htmlFor="name">Ingrese su nombre:</Label>
             <Input
@@ -135,14 +202,23 @@ export default function ContactForm() {
               className={errors.name ? "border-red-500" : ""}
               {...register("name")}
             />
-            {errors.name && (
-              <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
-            )}
+            <AnimatePresence>
+              {errors.name && (
+                <motion.p
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="text-red-500 text-sm mt-1"
+                >
+                  {errors.name.message}
+                </motion.p>
+              )}
+            </AnimatePresence>
           </div>
 
           <div className="space-y-2">
             <Label>Elija un método de contacto:</Label>
-            <div className="flex gap-2 mb-2 flex-wrap justify-center">
+            <div className="flex gap-1 mb-2 flex-wrap justify-center w-full ">
               {(
                 [
                   "email",
@@ -151,64 +227,107 @@ export default function ContactForm() {
                   "whatsapp",
                 ] as FormContactType["contactType"][]
               ).map((type) => (
-                <Button
+                <motion.div
                   key={type}
-                  type="button"
-                  size={!isOnPhone ? "lg" : "default"}
-                  variant={contactType === type ? "default" : "outline"}
-                  onClick={() => handleContactTypeSelection(type)}
+                  initial="unselected"
+                  animate={contactType === type ? "selected" : "unselected"}
+                  whileHover="hover"
+                  whileTap="tap"
+                  variants={buttonVariants}
                 >
-                  {type === "email" && (
-                    <span className="flex space-x-1 items-center justify-center">
-                      <Mail size={15} />
-                      <span>Email</span>
-                    </span>
-                  )}
-                  {type === "telegram" && (
-                    <span className="flex space-x-1 items-center justify-center">
-                      <PiTelegramLogo size={15} />
-                      <span>Telegram</span>
-                    </span>
-                  )}
-                  {type === "phoneNumber" && (
-                    <span className="flex space-x-1 items-center justify-center">
-                      <PhoneCall size={15} />
-                      <span>Teléfono</span>
-                    </span>
-                  )}
-                  {type === "whatsapp" && (
-                    <span className="flex space-x-1 items-center justify-center">
-                      <PiWhatsappLogo size={15} />
-                      <span>WhatsApp</span>
-                    </span>
-                  )}
-                </Button>
+                  <Button
+                    type="button"
+                    size={!isOnPhone ? "lg" : "default"}
+                    variant={contactType === type ? "default" : "outline"}
+                    onClick={() => handleContactTypeSelection(type)}
+                    className="relative"
+                  >
+                    {type === "email" && (
+                      <motion.span
+                        className="flex space-x-1 items-center justify-center"
+                        whileHover="hover"
+                      >
+                        <Mail size={15} />
+                        <span>Email</span>
+                      </motion.span>
+                    )}
+                    {type === "telegram" && (
+                      <motion.span
+                        className="flex space-x-1 items-center justify-center"
+                        whileHover="hover"
+                      >
+                        <PiTelegramLogo size={15} />
+                        <span>Telegram</span>
+                      </motion.span>
+                    )}
+                    {type === "phoneNumber" && (
+                      <motion.span
+                        className="flex space-x-1 items-center justify-center"
+                        whileHover="hover"
+                      >
+                        <PhoneCall size={15} />
+                        <span>Teléfono</span>
+                      </motion.span>
+                    )}
+                    {type === "whatsapp" && (
+                      <motion.span
+                        className="flex space-x-1 items-center justify-center"
+                        whileHover="hover"
+                      >
+                        <PiWhatsappLogo size={15} />
+                        <span>WhatsApp</span>
+                      </motion.span>
+                    )}
+                  </Button>
+                </motion.div>
               ))}
             </div>
 
-            <Input
-              id="contact"
-              {...register("contact.contact")}
-              {...getContactInputProps()}
-              className={errors.contact?.contact ? "border-red-500" : ""}
-              type="text"
-            />
-            {errors.contact && (
-              <p className="text-red-500 text-sm mt-1">
-                {errors.contact.contact?.message}
-              </p>
-            )}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Input
+                id="contact"
+                {...register("contact.contact")}
+                {...getContactInputProps()}
+                className={errors.contact?.contact ? "border-red-500" : ""}
+                type="text"
+              />
+              <AnimatePresence>
+                {errors.contact && (
+                  <motion.p
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="text-red-500 text-sm mt-1"
+                  >
+                    {errors.contact.contact?.message}
+                  </motion.p>
+                )}
+              </AnimatePresence>
+            </motion.div>
           </div>
-          <Button
-            type="submit"
-            size={"lg"}
-            disabled={isSubmitting}
-            className="w-full "
+
+          <motion.div
+            variants={submitButtonVariants}
+            initial="initial"
+            whileHover="hover"
+            whileTap="tap"
+            animate={isSubmitting ? "loading" : "initial"}
           >
-            {isSubmitting ? "Enviando..." : "Discutir el proyecto"}
-            <ArrowUpRight className="ml-2" />
-          </Button>
-        </form>
+            <Button
+              type="submit"
+              size={"lg"}
+              disabled={isSubmitting}
+              className="w-full transition-none"
+            >
+              {isSubmitting ? "Enviando..." : "Discutir el proyecto"}
+              <ArrowUpRight className="ml-2" />
+            </Button>
+          </motion.div>
+        </motion.form>
       </div>
     </div>
   );
