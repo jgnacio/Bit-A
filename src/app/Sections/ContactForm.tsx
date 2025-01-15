@@ -16,6 +16,7 @@ import { useToast } from "@/hooks/use-toast";
 import { DateInput, Spinner } from "@nextui-org/react";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export default function ContactForm() {
   const { toast } = useToast();
@@ -118,6 +119,12 @@ export default function ContactForm() {
         .post("/api/send", data)
         .then((res: any) => res.data)
         .catch((error: any) => {});
+
+      // Send GA Event
+      sendGAEvent({
+        event: "form_submit",
+        value: 1,
+      });
 
       // Toast
       toast({
