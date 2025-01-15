@@ -62,10 +62,10 @@ const Section01 = ({
           Haz Crecer Tu Negocio con Nuestra Alianza Estratégica Digital
         </h2>
         <p className="font-medium text-2xl">
-          <WaveLink href={"#"}>Conviértete en proveedor</WaveLink> de páginas
-          web personalizadas, gana comisiones por cada cliente y recibe ingresos
-          adicionales con la venta de materiales promocionales que producimos
-          directamente contigo.
+          <WaveLink href={"#FormContact"}>Conviértete en proveedor</WaveLink> de
+          páginas web personalizadas, gana comisiones por cada cliente y recibe
+          ingresos adicionales con la venta de materiales promocionales que
+          producimos directamente contigo.
         </p>
       </motion.div>
     </div>
