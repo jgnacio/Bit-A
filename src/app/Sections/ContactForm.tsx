@@ -187,7 +187,9 @@ export default function ContactForm() {
           transition={{ duration: 0.5 }}
           className="mb-6 flex flex-col items-center justify-center"
         >
-          <h3 className="text-5xl font-bold mb-2">Hablanos de tu proyecto</h3>
+          <h3 className="text-5xl font-bold mb-2">
+            Gana comisiones por cada cliente
+          </h3>
           <p className="text-lg text-gray-600">
             Completa el formulario y nos pondremos en contacto
           </p>
