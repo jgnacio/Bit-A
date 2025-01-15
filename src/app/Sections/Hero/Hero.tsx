@@ -85,7 +85,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="relative h-screen " id="home">
+    <div className="relative h-screen" id="home">
       {/* Video de fondo */}
       <HeroBackgroudAnimation />
       {/* <video

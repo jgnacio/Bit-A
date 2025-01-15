@@ -19,22 +19,24 @@ export default function HeroBackgroudAnimation({
     }
   }, []);
   return (
-    <div
-      ref={ref}
-      className={`flex items-center absolute -z-10 justify-center w-full h-full bg-black ${className}`}
-    >
-      {isInViewport && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2 }}
-          className="w-full h-full"
+    <div className="bg-black w-full h-full absolute">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2 }}
+        className="w-full h-full absolute z-10"
+      >
+        <div
+          ref={ref}
+          className={`flex items-center absolute z-20 justify-center w-full h-full ${className}`}
         >
-          <Canvas dpr={dpr}>
-            <Experience />
-          </Canvas>
-        </motion.div>
-      )}
+          {isInViewport && (
+            <Canvas dpr={dpr}>
+              <Experience />
+            </Canvas>
+          )}
+        </div>
+      </motion.div>
     </div>
   );
 }
