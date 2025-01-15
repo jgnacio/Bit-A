@@ -3,6 +3,7 @@ import Experience from "@/components/Scenes/Experience";
 import { useInViewport } from "@/hooks/useInViewport";
 import { Canvas } from "@react-three/fiber";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export default function HeroBackgroudAnimation({
   className,
@@ -20,12 +21,19 @@ export default function HeroBackgroudAnimation({
   return (
     <div
       ref={ref}
-      className={`flex items-center absolute -z-10 justify-center w-full h-full bg-white ${className}`}
+      className={`flex items-center absolute -z-10 justify-center w-full h-full bg-black ${className}`}
     >
       {isInViewport && (
-        <Canvas dpr={dpr}>
-          <Experience />
-        </Canvas>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+          className="w-full h-full"
+        >
+          <Canvas dpr={dpr}>
+            <Experience />
+          </Canvas>
+        </motion.div>
       )}
     </div>
   );
