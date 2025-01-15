@@ -8,6 +8,7 @@
   }
   :root {
     /* Primary and Secondary remain the same */
+    /* --primary: 	227, 100%, 52%; */
     --primary: 302, 83%, 48%;
     --primary-foreground: 210, 20%, 98%;
     --secondary: 208, 97%, 55%;

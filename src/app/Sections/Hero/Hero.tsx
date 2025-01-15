@@ -107,23 +107,23 @@ export default function Hero() {
       {/* <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50"></div> */}
 
       {/* Contenido del hero */}
-      <div className="relative z-30 flex flex-col items-center justify-center min-h-screen px-4 text-background">
+      <div className="relative z-30 flex flex-col items-center justify-center min-h-screen px-12 text-background">
         <img
-          src="https://res.cloudinary.com/dhq5ewbyu/image/upload/v1731462052/Bit-A/yjcjxgoxffsktr0esmo1.png"
+          src="https://res.cloudinary.com/dhq5ewbyu/image/upload/v1736904000/Bit-A_v7_White_avmyet.svg"
           alt="Bit-A Desarrollo Web"
-          className="w-[23rem] mb-5"
+          className="w-[12rem] mb-5 pointer-events-none select-none sm:w-[10rem] md:w-[15rem] lg:w-[20rem]"
         ></img>
-        <h1 className={`text-2xl md:text-4xl font-black mb-4 text-center `}>
+        <h1 className={`text-2xl md:text-4xl font-black mb-4`}>
           Diseño web profesional para negocios locales
         </h1>
-        <p className="text-lg md:text-xl mb-12 max-w-2xl text-center">
+        <p className="text-lg md:text-xl mb-9 max-w-3xl">
           Transforma tu negocio local en una{" "}
           <span className="font-black"> potencia digital</span>. Cuéntanos sobre
           tu proyecto, y te mostraremos cómo atraer más clientes y maximizar tu
           impacto en línea.
         </p>
         <a href="#FormContact">
-          <Button className="bg-background text-foreground py-3 px-8 text-lg font-semibold transition-all duration-300 hover:bg-opacity-80 hover:scale-105 hover:bg-background flex items-center">
+          <Button className="bg-background text-foreground py-3 px-9 text-lg font-semibold transition-all duration-300 hover:bg-opacity-80 hover:scale-105 hover:bg-background flex items-center">
             Solicita Tu Asesoría Gratis
             <ArrowRight className="ml-2" />
           </Button>

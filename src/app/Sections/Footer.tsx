@@ -7,9 +7,9 @@ export default function Footer() {
     <footer className="w-full h-[70vh] bg-black relative flex justify-center items-center ">
       <div className="absolute px-2 lg:px-8 flex flex-col justify-center items-center">
         <img
-          src="https://res.cloudinary.com/dhq5ewbyu/image/upload/v1731462052/Bit-A/yjcjxgoxffsktr0esmo1.png"
+          src="https://res.cloudinary.com/dhq5ewbyu/image/upload/v1736904000/Bit-A_v7_White_avmyet.svg"
           alt="Bit-A Desarrollo Web"
-          className="w-[15rem] mb-5 "
+          className="w-[12rem] mb-5 pointer-events-none select-none sm:w-[14rem] md:w-[15rem]"
         ></img>
         <a className="underline" href="#home">
           <Button variant={"outline"}>Ir al inicio</Button>
