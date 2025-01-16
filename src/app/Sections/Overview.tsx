@@ -60,12 +60,7 @@ const Section01 = ({
         className="sticky top-0 w-full h-screen  flex flex-col items-center justify-center gap-12 xl:py-8"
       >
         <h2 className={`sm:text-7xl text-5xl font-black`}>
-          Haz Crecer Tu Negocio con Nuestra
-          <DecryptedText
-            text="Alianza Estratégica Digital"
-            maxIterations={40}
-            animateOn="view"
-          />
+          Haz Crecer Tu Negocio con Nuestra Alianza Estratégica Digital
         </h2>
         <p className="font-medium text-2xl">
           <WaveLink href={"#FormContact"}>Conviértete en proveedor</WaveLink> de
