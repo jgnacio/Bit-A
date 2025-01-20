@@ -17,6 +17,7 @@ import { DateInput, Spinner } from "@nextui-org/react";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { sendGAEvent } from "@next/third-parties/google";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function ContactForm() {
   const { toast } = useToast();
@@ -188,7 +189,7 @@ export default function ContactForm() {
           className="mb-6 flex flex-col items-center justify-center"
         >
           <h3 className="text-5xl font-bold mb-2">
-            Gana comisiones por cada cliente
+            Cuéntanos sobre tu proyecto
           </h3>
           <p className="text-lg text-gray-600">
             Completa el formulario y nos pondremos en contacto
@@ -317,6 +318,29 @@ export default function ContactForm() {
                 )}
               </AnimatePresence>
             </motion.div>
+          </div>
+
+          <div>
+            <Label>Cuéntanos sobre tu proyecto</Label>
+            <Textarea
+              placeholder="
+              
+                "
+              id="description"
+              {...register("description")}
+            />
+            <AnimatePresence>
+              {errors.description && (
+                <motion.p
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="text-red-500 text-sm mt-1"
+                >
+                  {errors.description.message}
+                </motion.p>
+              )}
+            </AnimatePresence>
           </div>
 
           <motion.div

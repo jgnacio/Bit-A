@@ -3,9 +3,14 @@ import { FormContactType } from "@/app/Schemas/ContactFormSchema";
 interface EmailTemplateProps {
   name: string;
   contact: FormContactType["contact"];
+  description: string;
 }
 
-export default function EmailLead({ name, contact }: EmailTemplateProps) {
+export default function EmailLead({
+  name,
+  contact,
+  description,
+}: EmailTemplateProps) {
   return (
     <div
       style={{
@@ -99,6 +104,16 @@ export default function EmailLead({ name, contact }: EmailTemplateProps) {
               }}
             >
               <strong>Contacto:</strong> {contact.contact}
+            </p>
+
+            {/* Descripción */}
+            <p
+              style={{
+                margin: "10px 0",
+                color: "#374151",
+              }}
+            >
+              <strong>Descripción:</strong> {description}
             </p>
           </div>
         </div>

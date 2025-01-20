@@ -1,6 +1,4 @@
-import SceneFooter from "@/components/Scenes/SceneFooter";
 import { Button } from "@/components/ui/button";
-import { LinkIcon } from "@nextui-org/react";
 export default function Footer() {
   const date = new Date();
   return (
@@ -18,7 +16,6 @@ export default function Footer() {
           &copy; {date.getFullYear()} Bit-A. Todos los derechos reservados
         </p>
       </div>
-      {/* <SceneFooter /> */}
     </footer>
   );
 }

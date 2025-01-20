@@ -7,7 +7,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { contact, name } = body;
+    const { contact, name, description } = body;
 
     if (!contact || !name) {
       return NextResponse.json(
@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
       from: "Acme <onboarding@resend.dev>",
       to: ["jgnaciogomez@gmail.com"],
       subject: `Nuevo Lead ${name} 📨`,
-      react: EmailLead({ name, contact }),
+      react: EmailLead({ name, contact, description }),
     });
 
     if (error) {
