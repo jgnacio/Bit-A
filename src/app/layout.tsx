@@ -15,7 +15,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Bit-A Desarrollo Web",
   description:
-    "El aliado estratégico de las empresas en su transformación digital.",
+    "Creamos sitios web innovadores que potencian tu negocio globalmente. Convertimos tu trayectoria en una voz activa en línea que cuenta acerca de lo que tienes para ofrecer y mejorar lo que existe.",
 };
 
 export default function RootLayout({
