@@ -10,12 +10,12 @@ export default function HeroBackgroudAnimation({
 }: {
   className?: string;
 }) {
-  const [dpr, setDpr] = useState<[number, number]>([1, 1.5]);
+  const [dpr, setDpr] = useState<[number, number]>([1, 1]);
   const { ref, isInViewport } = useInViewport<HTMLDivElement>();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setDpr([1, window.innerWidth > 1080 ? 1.5 : 6]);
+      setDpr([0.6, window.innerWidth > 1080 ? 1 : 0.6]);
     }
   }, []);
   return (

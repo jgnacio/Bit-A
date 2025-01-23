@@ -1,24 +1,15 @@
 "use client";
-import {
-  motion,
-  MotionValue,
-  useInView,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import { use, useEffect, useRef } from "react";
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
-import { Zen_Dots } from "next/font/google";
-import { Canvas } from "@react-three/fiber";
 import Experience from "@/components/Scenes/Experience";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { WaveLink } from "@/components/ui/wavelink";
-import { OS, useOs } from "@mantine/hooks";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import { mapValue } from "@/lib/mapValue";
-import DecryptedText from "@/components/Animations/DecriptedText";
+import { useGSAP } from "@gsap/react";
+import { OS, useOs } from "@mantine/hooks";
+import { Canvas } from "@react-three/fiber";
+import gsap from "gsap";
+import { Zen_Dots } from "next/font/google";
 
 const zenDots = Zen_Dots({ subsets: ["latin"], weight: ["400"] });
 
@@ -65,8 +56,7 @@ const Section01 = ({
         <p className="font-medium text-2xl">
           <WaveLink href={"#FormContact"}>Conviértete en proveedor</WaveLink> de
           páginas web personalizadas, gana comisiones por cada cliente y recibe
-          ingresos adicionales con la venta de materiales promocionales que
-          producimos directamente contigo.
+          ingresos adicionales.
         </p>
       </motion.div>
     </div>

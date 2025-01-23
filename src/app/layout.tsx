@@ -15,7 +15,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Bit-A Desarrollo Web",
   description:
-    "Creamos sitios web innovadores que potencian tu negocio globalmente. Convertimos tu trayectoria en una voz activa en línea que cuenta acerca de lo que tienes para ofrecer y mejorar lo que existe.",
+    "Creamos sitios web innovadores que potencian tu negocio globalmente. En Bit-A convertimos tu trayectoria en una voz activa en línea que cuenta acerca de lo que tienes para ofrecer y mejorar lo que existe.",
 };
 
 export default function RootLayout({
@@ -25,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en" className={`${manrope.className}`}>
+      <html lang="es" className={`${manrope.className}`}>
         <body>
           <Providers>
             {children}

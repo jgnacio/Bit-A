@@ -91,7 +91,7 @@ const Cursor = () => {
 
       gsap.to(pointer.current, {
         rotateZ: `+=${event.movementX + event.movementY * 2}`,
-        duration: 0.05,
+        duration: 0.035,
         ease: "power3.out",
       });
     };
