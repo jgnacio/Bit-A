@@ -8,10 +8,9 @@
   }
   :root {
     /* Primary and Secondary remain the same */
-    /* --primary: 	227, 100%, 52%; */
-    --primary: 302, 83%, 48%;
+    --primary: 228, 98%, 52%;
     --primary-foreground: 210, 20%, 98%;
-    --secondary: 208, 97%, 55%;
+    --secondary: 283, 39%, 47%;
     --secondary-foreground: 302, 83%, 48%;
 
     /* Background and Foreground */
@@ -52,9 +51,9 @@
 
   .dark {
     /* Primary and Secondary remain the same */
-    --primary: 302, 83%, 48%;
+    --primary: 228, 98%, 52%;
     --primary-foreground: 210, 20%, 98%;
-    --secondary: 208, 97%, 55%;
+    --secondary: 283, 39%, 47%;
     --secondary-foreground: 302, 83%, 48%;
 
     /* Background and Foreground */

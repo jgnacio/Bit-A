@@ -33,6 +33,7 @@ const Cursor = () => {
       hover:
         "polygon(0% 0%, 0% 100%, 5% 100%, 5% 5%, 95% 5%, 95% 95%, 5% 95%, 5% 100%, 100% 100%, 100% 0%)",
       diamond: "polygon(100% 100%, 100% 0%, 0% 0%, 0% 100%)",
+      none: "polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%)",
     };
     return clipPaths[cursorType] || clipPaths.default;
   };
@@ -68,6 +69,15 @@ const Cursor = () => {
             scale: 2.5,
             clipPath: getClipPath("diamond"),
             duration: 0.5,
+          });
+          break;
+        case "none":
+          timeline.to(pointer.current, {
+            scale: 0,
+            clipPath: getClipPath("none"),
+            duration: 0.5,
+            ease: "power3.inOut",
+            rotation: -360,
           });
           break;
         default:

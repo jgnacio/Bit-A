@@ -2,7 +2,7 @@
 import type { ReactNode } from "react";
 import { create } from "zustand";
 
-export type CursorType = "default" | "pointer" | "hover" | "diamond";
+export type CursorType = "default" | "pointer" | "hover" | "diamond" | "none";
 
 type CursorStore = {
   type: CursorType;

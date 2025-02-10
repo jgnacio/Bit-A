@@ -2,10 +2,7 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 
-import { ClerkProvider } from "@clerk/nextjs";
-
 import { Providers } from "./Providers/Providers";
-import CustomCursor from "@/components/Cursor/Cursor";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -24,15 +21,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
-      <html lang="es" className={`${manrope.className}`}>
-        <body>
-          <Providers>
-            {children}
-            <CustomCursor />
-          </Providers>
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="es" className={`${manrope.className}`}>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
   );
 }

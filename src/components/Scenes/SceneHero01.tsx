@@ -1,4 +1,4 @@
-import stripesFagment from "@/app/shaders/stripes.fragment.glsl";
+import stripesFagment from "@/app/(landing)/shaders/stripes.fragment.glsl";
 import { mapValue } from "@/lib/mapValue";
 import { useGSAP } from "@gsap/react";
 import { shaderMaterial, useTexture } from "@react-three/drei";
@@ -9,7 +9,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useControls } from "leva";
 import { useRef } from "react";
 import * as THREE from "three";
-import stripesVertext from "../../app/shaders/stripes.vertex.glsl";
+import stripesVertext from "@/app/(landing)/shaders/stripes.vertex.glsl";
 
 gsap.registerPlugin(ScrollTrigger);
 

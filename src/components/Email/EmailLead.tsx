@@ -1,4 +1,4 @@
-import { FormContactType } from "@/app/Schemas/ContactFormSchema";
+import { FormContactType } from "@/app/(landing)/Schemas/ContactFormSchema";
 
 interface EmailTemplateProps {
   name: string;
