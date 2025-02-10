@@ -21,7 +21,7 @@ import { TicketsColumnsGrid } from "../Core/GridColums/TicketsColumnsGrid";
 
 function Tickets() {
   const [filters, setFilters] = useState<Ticket>({
-    id: 0,
+    id: "0",
     title: "",
     status: "",
     priority: "",

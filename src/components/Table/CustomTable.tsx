@@ -61,22 +61,18 @@ function CustomTable({
   config: ConfigCustomTableProps;
 }) {
   const [rows, setRows] = useState<TableRow[]>(data);
-  if (!config) return null;
-  if (!config.template) return null;
-  if (!config.template.length) return null;
-  if (!data.length) return null;
+  let arrayColumns = Array(config.template.length).fill(true);
   const IDIndex = config.template.findIndex(
     (item) => item.title?.toLocaleLowerCase() === "id"
   );
-  let arrayColumns = Array(config.template.length).fill(true);
   if (IDIndex !== -1 && !config.showId) {
     arrayColumns[IDIndex] = false;
   }
-
-  console.log(arrayColumns);
-
   // Estado para controlar la visibilidad de las columnas
   const [visibleColumns, setVisibleColumns] = useState<boolean[]>(arrayColumns);
+  if (!config || !config.template || !config.template.length || !data.length) {
+    return null;
+  }
 
   // Manejador de eventos cuando se termina de arrastrar una fila
   const handleDragEnd = (event: DragEndEvent) => {

@@ -1,23 +1,22 @@
 "use client";
-import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useForm } from "react-hook-form";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { OS, useOs } from "@mantine/hooks";
+import { sendGAEvent } from "@next/third-parties/google";
+import axios from "axios";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowUpRight, Heart, Mail, PhoneCall } from "lucide-react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { PiTelegramLogo, PiWhatsappLogo } from "react-icons/pi";
 import {
   type FormContactType,
   contactSchema,
 } from "../Schemas/ContactFormSchema";
-import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Handshake, Heart, Mail, PhoneCall } from "lucide-react";
-import { useState } from "react";
-import { PiTelegramLogo, PiWhatsappLogo } from "react-icons/pi";
-import { OS, useOs } from "@mantine/hooks";
-import { useToast } from "@/hooks/use-toast";
-import { DateInput, Spinner } from "@nextui-org/react";
-import axios from "axios";
-import { motion, AnimatePresence } from "framer-motion";
-import { sendGAEvent } from "@next/third-parties/google";
-import { Textarea } from "@/components/ui/textarea";
 
 export default function ContactForm() {
   const { toast } = useToast();
