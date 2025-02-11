@@ -1,13 +1,22 @@
 import EmailLead from "@/components/Email/EmailLead";
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { FormContactType } from "../../Schemas/ContactFormSchema";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { contact, name, description } = body;
+    const {
+      contact,
+      name,
+      description,
+    }: {
+      name: string;
+      contact: FormContactType["contact"];
+      description: string;
+    } = body;
 
     if (!contact || !name) {
       return NextResponse.json(
